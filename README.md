@@ -20,12 +20,15 @@ And the `display` command would look like this:
 
 ### Prompted Command
 tst-cli also has a prompt guided command interface. To start, type `tst-cli` into the command line. Then, select the operation that needs to be performed. 
+
 ![tst-cli menu](https://imgur.com/0bUApSu.png)
 
-Finally, type the key that is associated with the operation. 
+Finally, type the key that is associated with the operation.
+
 ![tst-cli arg](https://imgur.com/O56Ec4v.png)
 
 If the operation selected was `display`, hit the enter key and leave the prompt blank.
+
 ![tst-cli no arg](https://imgur.com/vJRiOtY.png)
 
 
