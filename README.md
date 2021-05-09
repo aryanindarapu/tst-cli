@@ -10,12 +10,15 @@ tst-cli supports five different operations on the Ternary Search Tree. Each comm
 
 ### Single-Line Command
 The general command is as follows:
+    
     $ tst-cli command arg
 
 The `add` command would look like this:
+    
     $ tst-cli add examplekey
 
 And the `display` command would look like this:
+    
     $ tst-cli display
 
 ### Prompted Command
