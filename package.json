@@ -1,0 +1,31 @@
+{
+  "name": "@aryind/tst-cli",
+  "version": "1.0.2",
+  "description": "A CLI to interact with trie hosted on AWS.",
+  "main": "src/index.js",
+  "bin": {
+    "@aryind/tst-cli": "bin/tst-cli",
+    "tst-cli": "bin/tst-cli"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "tst-cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "arg": "^5.0.0",
+    "chalk": "^4.1.1",
+    "esm": "^3.2.25",
+    "fs": "0.0.1-security",
+    "inquirer": "^8.0.0",
+    "listr": "^0.14.3",
+    "node-fetch": "^2.6.1"
+  }
+}
