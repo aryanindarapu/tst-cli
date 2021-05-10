@@ -1,5 +1,4 @@
 import chalk from 'chalk'
-import { postData } from './main'
 import fetch from 'node-fetch'
 
 // Clears all keys
@@ -263,11 +262,11 @@ async function displayKeys() {
 
 export async function testSuite() {
     await clearKeys()
-    let tc1 = await testCase1()
-    let tc2 = await testCase2()
-    let tc3 = await testCase3()
-    let tc4 = await testCase4()
+    await testCase1()
+    await testCase2()
+    await testCase3()
+    await testCase4()
     await displayKeys()
 
-    console.log('%s All tests were successful.', chalk.green.bold('TEST SUITE SUCCESS'))
+    console.log('%s All tests were run.', chalk.green.bold('TEST SUITE FINISHED'))
 }

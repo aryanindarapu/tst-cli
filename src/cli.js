@@ -2,6 +2,12 @@ import arg from 'arg'
 import inquirer from 'inquirer'
 import { tstCli } from './main'
 
+/* Some of the code below was taken from a Twilio guide on making a NodeJS 
+*  Command Line Interface. None of this code, however, directly affects the 
+*  hosted trie data structure. The link for the guide is below:
+*  https://www.twilio.com/blog/how-to-build-a-cli-with-node-js
+*/
+
 function parseArgumentsIntoOptions(rawArgs) {
     const args = arg(
         {
@@ -11,7 +17,8 @@ function parseArgumentsIntoOptions(rawArgs) {
         {
             argv: rawArgs.slice(2),
         }
-    );
+    )
+
     return {
         funcCall: args._[0],
         funcArg: args._[1],
@@ -27,7 +34,7 @@ async function promptForMissingOptions(options) {
             ...options,
             funcCall: options.funcCall || defaultCall,
             funcArg: options.funcArg || defaultArg
-        };
+        }
     }
 
     const questions = [];
@@ -38,7 +45,7 @@ async function promptForMissingOptions(options) {
             message: 'Please choose which operation to execute on the trie:',
             choices: ['add', 'delete', 'clear', 'search', 'autocomplete', 'display'],
             default: defaultCall,
-        });
+        })
     }
 
     if (!options.funcCall) {
@@ -47,10 +54,10 @@ async function promptForMissingOptions(options) {
             name: 'funcArg',
             message: 'Please type the key you would like to associate with the operation (if operation is display or clear, leave blank):',
             default: '',
-        });
+        })
     }
 
-    const answers = await inquirer.prompt(questions);
+    const answers = await inquirer.prompt(questions)
     return {
         ...options,
         funcCall: options.funcCall || answers.funcCall,

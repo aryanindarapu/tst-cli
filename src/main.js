@@ -95,9 +95,10 @@ export async function tstCli(options) {
     }
 
     if ((options.funcCall != 'display' && options.funcCall != 'clear' && options.funcCall != 'suite')  && (options.funcArg == '' || options.funcArg == undefined)) {
-        console.log(options.funcCall != 'display' || options.funcCall != 'clear' || options.funcCall != 'suite')
+        console.log('%s Operation failed: Missing argument', chalk.red.bold('FAILED'))
         return false
     } else if ((options.funcCall == 'display' || options.funcCall == 'clear' || options.funcCall == 'suite') && (options.funcArg != '' && options.funcArg != undefined)) {
+        console.log('%s Operation failed: Too many arguments', chalk.red.bold('FAILED'))
         return false
     } else {
         let call = options.funcCall
