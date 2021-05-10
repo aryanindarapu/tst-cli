@@ -1,6 +1,6 @@
 {
   "name": "@aryind/tst-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A CLI to interact with trie hosted on AWS.",
   "main": "src/index.js",
   "bin": {
