@@ -2,12 +2,12 @@ import chalk from 'chalk'
 import fetch from 'node-fetch'
 
 function postData(data) {
-    return fetch("https://17n094oc2k.execute-api.us-east-2.amazonaws.com/default/tst_functions", {
+    return fetch("https://gw2g3gr01b.execute-api.us-east-2.amazonaws.com/default/tst_function", {
         method: 'POST', 
         mode: 'cors', 
         credentials: 'same-origin', 
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(data)
     }).then(function(res) { 
