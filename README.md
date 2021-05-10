@@ -88,4 +88,4 @@ If, instead, the JSON is entered within the command, the command is as follows:
 
     $ curl -d "{'funcCall':'<operation>', 'funcArg':'<argument>'}" -H 'Content-Type: application/json' -X POST https://gw2g3gr01b.execute-api.us-east-2.amazonaws.com/default/tst_function
 
-`<operation>` should be one of the six operations (shown above) and `<argument>` should be the key passed to the trie for the operation. If the `<operation>` selected is `display` or `clear`, `<argument>` needs to be `''`.
+`<operation>` should be one of the six operations (shown in the table above) and `<argument>` should be the key passed to the trie for the operation. If the `<operation>` selected is `display` or `clear`, `<argument>` needs to be `''`.
