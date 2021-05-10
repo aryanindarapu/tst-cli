@@ -5,9 +5,7 @@ import { tstCli } from './main'
 function parseArgumentsIntoOptions(rawArgs) {
     const args = arg(
         {
-            '--yes': Boolean,
             '--install': Boolean,
-            '-y': '--yes',
             '-i': '--install',
         },
         {
@@ -38,7 +36,7 @@ async function promptForMissingOptions(options) {
             type: 'list',
             name: 'funcCall',
             message: 'Please choose which operation to execute on the trie:',
-            choices: ['add', 'delete', 'search', 'autocomplete', 'display'],
+            choices: ['add', 'delete', 'clear', 'search', 'autocomplete', 'display'],
             default: defaultCall,
         });
     }
@@ -47,7 +45,7 @@ async function promptForMissingOptions(options) {
         questions.push({
             type: 'message',
             name: 'funcArg',
-            message: 'Please type the key you would like to associate with the operation (if operation is display, leave blank):',
+            message: 'Please type the key you would like to associate with the operation (if operation is display or clear, leave blank):',
             default: '',
         });
     }

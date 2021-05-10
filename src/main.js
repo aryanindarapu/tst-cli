@@ -1,7 +1,8 @@
 import chalk from 'chalk'
+import { testSuite } from './testSuite'
 import fetch from 'node-fetch'
 
-function postData(data) {
+export function postData(data) {
     return fetch("https://gw2g3gr01b.execute-api.us-east-2.amazonaws.com/default/tst_function", {
         method: 'POST', 
         mode: 'cors', 
@@ -65,15 +66,27 @@ export async function tstCli(options) {
                 .then(function(res) {
                     console.log(res['body'])
                 }).catch((error) => {
-                    console.log(error)
                     console.log("Connection Issues. Please try again.")
                 })
                 break
-            
+
+            case 'clear':
+                postData(jsonData)
+                .then(function(res) {
+                    console.log('%s Operation completed', chalk.green.bold('DONE'))
+                }).catch((error) => {
+                    console.log("Connection Issues. Please try again.")
+                })
+                break
+
+            case 'suite':
+                testSuite()
+                break
+
             default:
                 postData({"funcCall": "display", "funcArg": ""})
                 .then(function(res) {
-                    console.log(res['body'])
+                    console.log('%s Operation completed', chalk.green.bold('DONE'))
                 }).catch((error) => {
                     console.log("Connection Issues. Please try again.")
                 })
@@ -81,10 +94,11 @@ export async function tstCli(options) {
         }
     }
 
-    if ((options.funcCall != 'display' && (options.funcArg == '' || options.funcArg == undefined))) {
+    if ((options.funcCall != 'display' && options.funcCall != 'clear' && options.funcCall != 'suite')  && (options.funcArg == '' || options.funcArg == undefined)) {
+        console.log(options.funcCall != 'display' || options.funcCall != 'clear' || options.funcCall != 'suite')
         console.log('%s Operation failed: Missing argument', chalk.red.bold('FAILED'))
         return false
-    } else if ((options.funcCall == 'display' && (options.funcArg != '' && options.funcArg != undefined))) {
+    } else if ((options.funcCall == 'display' || options.funcCall == 'clear' || options.funcCall == 'suite') && (options.funcArg != '' && options.funcArg != undefined)) {
         console.log('%s Operation failed: Too many arguments', chalk.red.bold('FAILED'))
         return false
     } else {

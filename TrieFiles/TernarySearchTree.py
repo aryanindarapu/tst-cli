@@ -68,11 +68,19 @@ class TST:
                 if node.right is None: return False
                 else: return self.delete(key, node.right)
 
+    # Clears all keys from the trie
+    def clear(self):
+        listOfKeys = self.getKeys()
+        for i in listOfKeys:
+            self.delete(i)
+
+        return True
+
     # Returns list of possible words in trie based on key prefix
     def autocomplete(self, key):
         node = self._get(key)
         if node is None:
-            return None
+            return []
         else:
             tempList = list(map(lambda x : key[0:len(key) - 1] + x, self.getKeys(node)))
             removalList = []
@@ -81,15 +89,21 @@ class TST:
                     removalList.append(i)
             for i in removalList:
                 tempList.remove(i)
+
             return tempList
 
     # Returns list of keys inserted into trie
     def getKeys(self, node=None, currPath=None, keys=None):
         if keys is None:
             keys = []
-            if node is None: self.getKeys(self.root, "", keys)
-            else:
-                self.getKeys(node, "", keys)
+            try:
+                if node is None: 
+                    self.getKeys(self.root, "", keys)
+                else:
+                    self.getKeys(node, "", keys)
+            except:
+                keys = []
+                
             return keys
         else:
             if node.lastKey:

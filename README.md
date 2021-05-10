@@ -42,3 +42,12 @@ If the operation selected was `display`, hit the enter key and leave the prompt 
 | search            | `key`          | Prints `true` if `key` exists in the global trie. Otherwise, prints `false`   |
 | autocomplete      | `key`          | Prints a list of possible keys from the global trie based on the prefix `key` |
 | display           | None           | Prints a list of all keys from the global trie                                |
+| clear             | None           | Clears all keys from the global trie                                          |
+
+## Testing Suite
+tst-cli also offers a testing suite that automatically tests for all the different functionality that this trie offers. A simple command is needed to activate it:
+
+    $ tst-cli suite
+
+This will run through a test of the global trie. 
+NOTE: To check the global state, run the previous commmand on one client and run `tst-cli display` on a different client. These will output the same lists.
