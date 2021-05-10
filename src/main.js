@@ -88,9 +88,17 @@ export async function tstCli(options) {
         console.log('%s Operation failed: Too many arguments', chalk.red.bold('FAILED'))
         return false
     } else {
+        let call = options.funcCall
+        let arg = ""
+        if (options.funcArg == undefined) {
+            let arg = ""
+        } else {
+            arg = options.funcArg
+        }
+
         await sendRequest({
-            "funcCall": options.funcCall,
-            "funcArg": options.funcArg
+            "funcCall": call,
+            "funcArg": arg
         })
         return true;
     }
