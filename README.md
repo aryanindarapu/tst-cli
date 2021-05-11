@@ -50,9 +50,9 @@ tst-cli also offers a testing suite that automatically tests for all the differe
 
     $ tst-cli suite
 
-This will run through a test of the global trie. 
+This will run through a test of the global trie. To check the global state, run `tst-cli suite` on one client and run `tst-cli display` on a different client. These will output the same lists.
 
-NOTE: To check the global state, run `tst-cli suite` on one client and run `tst-cli display` on a different client. These will output the same lists.
+NOTE: Running the testing suite will clear all of the existing keys from the tree and inserts 26 preset keys.
 
 ## Error Handling
 tst-cli handles several different errors, and all of them are specified after executing commands.
